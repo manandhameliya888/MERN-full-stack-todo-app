@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+strong.text-3xl {
+  line-height: 1rem;
+}
+
+.App {
+  text-align: center;
+}
+
+header {
+  background: #1A1A40;
+  color: white;
+}
+
+nav {
+  padding: 10px 20px;
+  max-width: 1400px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+.TodoWrapper {
+  background: #1A1A40;
+  margin-top: 1rem;
+  max-width: 1000px;
+  margin-inline: auto;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.TodoForm {
+  width: 100%;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 500px;
+  margin-inline: auto;
+  gap: 10px;
+}
+
+.TodoForm div *:not(label), .todo-description:active {
+  border-radius: 8px;
+  border: 1px solid #8758ff;
+  background: none;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  color-scheme: dark;
+  font-size: 14px;
+}
+
+.TodoForm label {
+  font-size: 14px;
+  color: white;
+}
+
+.todo-input {
+  outline: none;
+  background: none;
+  border: 1px solid #8758ff;
+  padding: 0.5rem 1rem;
+}
+
+.todo-description {
+  resize: none;
+}
+
+.todo-btn {
+  background: #8758ff;
+  color: #fff;
+  border: none;
+  padding: 0.55rem;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.todo-btn:disabled {
+  cursor: auto;
+  opacity: 0.7;
+}
+
+.Todo {
+  background: #8758ff;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.todo-task {
+  background: #8758ff;
+}
+
+.todo-pending {
+  background: #9d9d32;
+}
+
+.todo-done {
+  background: green;
+}
+
+.todo-dateSame{
+  background: red;
+}
+
+.fa-trash {
+  margin-left: 0.75rem;
+}
+
+.incompleted {
+  color: #fff;
+  cursor: pointer;
+}
+
+.completed {
+  color: #c5aeff;
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
+.edit-icon,
+.delete-icon {
+  cursor: pointer;
+}
+ 
