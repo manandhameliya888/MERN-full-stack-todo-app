@@ -1,12 +1,12 @@
-import React from 'react'
-import { TodoWrapper } from './TodoWrapper'
+import React from "react";
+import { TodoWrapper } from "./TodoWrapper";
 
 const Home = () => {
   return (
     <>
       <TodoWrapper />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

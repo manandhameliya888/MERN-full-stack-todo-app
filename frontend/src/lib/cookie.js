@@ -1,24 +1,24 @@
-export function setCookie(name,value,minute) {
+export function setCookie(name, value, minute) {
   let expires = "";
   if (minute) {
-      const date = new Date();
-      date.setTime(date.getTime() + (minute*60*1000));
-      expires = "; expires=" + date.toUTCString();
+    const date = new Date();
+    date.setTime(date.getTime() + minute * 60 * 1000);
+    expires = "; expires=" + date.toUTCString();
   }
-  document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+  document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
 export function getCookie(name) {
   const nameEQ = name + "=";
-  const ca = document.cookie.split(';');
-  for(var i=0;i < ca.length;i++) {
-      var c = ca[i];
-      while (c.charAt(0)===' ') c = c.substring(1,c.length);
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length,c.length);
+  const ca = document.cookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) === " ") c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
   }
   return null;
 }
 
-export function eraseCookie(name) {   
-  document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+export function eraseCookie(name) {
+  document.cookie = name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 }
