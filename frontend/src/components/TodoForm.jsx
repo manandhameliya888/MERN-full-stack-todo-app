@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { formatDateDDMMYYYY, formateDateYYYYMMDD } from "../lib/date";
 
-export const TodoForm = ({ addTodo, editTodo, editTask, isEdit }) => {
-  console.log("Searching data", editTodo);
+export const TodoForm = ({ addTodo, editTodo, editTask, isEdit, clearForm }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
@@ -22,8 +21,9 @@ export const TodoForm = ({ addTodo, editTodo, editTask, isEdit }) => {
           : ""
       );
       setDescription(editTodo?.description);
+      setStatus(editTodo?.status ? editTodo?.status : "To Do")
     }
-  }, [isEdit]);
+  }, [isEdit, editTodo?._id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -122,7 +122,7 @@ export const TodoForm = ({ addTodo, editTodo, editTask, isEdit }) => {
       <button disabled={!title} type="submit" className="todo-btn">
         {isEdit ? "Edit" : "Add"} Task
       </button>
-      {/* {isEdit && <button onClick={clearForm} type="submit" className='todo-btn'>Reset Form</button>} */}
+      {isEdit && <button onClick={clearForm} type="submit" className='todo-btn'>Clear Form</button>}
     </form>
   );
 };

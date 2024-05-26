@@ -26,7 +26,7 @@ export const TodoWrapper = () => {
       const response = await axiosInstance.post('/api/todo', todo);
       setTodos([
         ...todos,
-        todo,
+        response?.data?.todo || todo,
       ]);
     } catch (error) {
       console.error("Error while adding Todo", error);
@@ -57,12 +57,11 @@ export const TodoWrapper = () => {
 
   const editTask = async (todo, id) => {
     try {
-      console.log("Searching aaayyyyy", id)
       const response = await axiosInstance.put(`/api/todo/${id}`, todo);
 
       setTodos(
         todos.map((item) =>
-          item._id === id ? todo : item
+          item._id === id ? response?.data?.updatedTodo : item
         )
       );
       if(response){
@@ -74,6 +73,11 @@ export const TodoWrapper = () => {
     }
   };
 
+  const clearForm = () => {
+    setEditTodo({});
+    setIsEditTodo(false);
+  }
+
   return (
     <div className="TodoWrapper">
       <TodoForm isEdit={isEditTodo} editTask={editTask} editTodo={editTodo} addTodo={addTodo} />
@@ -83,6 +87,7 @@ export const TodoWrapper = () => {
           task={todo}
           deleteTodo={deleteTodo}
           putEditTodo={putEditTodo}
+          clearForm={clearForm}
         />
       ))}
     </div>

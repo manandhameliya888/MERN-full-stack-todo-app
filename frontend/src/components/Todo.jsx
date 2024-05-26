@@ -63,10 +63,10 @@ export const Todo = ({ task, deleteTodo, putEditTodo }) => {
       ) : null}
       {(task?.dueDate || task?.reminderDate) && (
         <div className="flex justify-between items-center">
-          <div className="mt-2 text-md">Due Date: {task?.dueDate || ""}</div>
-          <div className="mt-2 text-md">
+          {task?.dueDate && <div className="mt-2 text-md">Due Date: {task?.dueDate || ""}</div>}
+          {task?.reminderDate && <div className="ml-auto mt-2 text-md">
             Reminder Date: {task?.reminderDate || ""}
-          </div>
+          </div>}
         </div>
       )}
     </div>
